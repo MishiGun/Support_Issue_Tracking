@@ -1,5 +1,8 @@
 class TicketsController < ApplicationController
 
+	before_filter :authenticate_user!, except: [:new, :create]
+
+
 	def index
 		@tickets = Ticket.all
 	end

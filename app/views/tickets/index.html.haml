@@ -1,6 +1,5 @@
-%h1 Tickets
-
-%table
+%h1(align="center") Tickets
+%table(align="center")
   %thead
     %tr
       %th Name
@@ -19,8 +18,7 @@
         %td= t.department
         %td= t.subject
         %td= t.status
-        %td= link_to "Show"
+        %td= link_to "Show", t, class: "btn btn-link btn-sm"
 
-%p
-
-= link_to "New Ticket", new_ticket_path
+.container(align="center")
+  = link_to "New Ticket", new_ticket_path, class: "btn btn-primary btn-md"
