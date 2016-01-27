@@ -1,0 +1,12 @@
+%h1 New Ticket
+= simple_form_for(@ticket) do |f|
+
+  .form-inputs
+    = f.input :name
+    = f.input :email
+    = f.input :subject
+    = f.input :department
+    = f.text_area :text
+
+  .form-actions
+    = f.button :submit
