@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :tickets
-  root 'tickets#index'
-  #root 'tickets#new'
+  #root 'tickets#index'
+  root 'tickets#new'
 
 
 

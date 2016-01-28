@@ -11,7 +11,9 @@ class TicketsController < ApplicationController
 
 	def create
     	@ticket = Ticket.new(ticket_params)
-    		if @ticket.save
+    	    key = "#{('A'..'Z').to_a.sample(3).join}-#{rand(100000..999999)}"
+    	    @ticket.key = key
+			if @ticket.save
       			UserMailer.create_ticket(@ticket, request.host_with_port).deliver
       			redirect_to tickets_path
    			else
