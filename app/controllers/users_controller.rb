@@ -1,10 +1,48 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-	def index
-    	@users =User.all
-  	end
+  respond_to :html
 
-  	def show
+  def index
+    @users = User.all
+    respond_with(@users)
+  end
+
+  def show
+    respond_with(@user)
+  end
+
+  def new
+    @user = User.new
+    respond_with(@user)
+  end
+
+  def edit
+  end
+
+  def create
+    @user = User.new(user_params)
+    @user.save
+    respond_with(@user)
+  end
+
+  def update
+    @user.update(user_params)
+    respond_with(@user)
+  end
+
+  def destroy
+    @user.destroy
+    respond_with(@user)
+  end
+
+  private
+    def set_user
+      user_id = params[:id]
+      @user = User.find_by(id: user_id)
     end
 
+    def user_params
+      params.require(:user).permit(:name)
+    end
 end

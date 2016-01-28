@@ -2,8 +2,14 @@ Rails.application.routes.draw do
   
 
   devise_for :users
-  resources :tickets
   resources :users
+  resources :tickets
+  root 'tickets#index'
+  #root 'tickets#new'
+
+
+
+
 
 
 
@@ -13,8 +19,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'tickets#index'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
