@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
 
   devise_for :users
-  resources :users
   resources :tickets
   root 'tickets#index'
   #root 'tickets#new'

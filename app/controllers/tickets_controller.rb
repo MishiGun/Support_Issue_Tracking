@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
 	def create
     	@ticket = Ticket.new(ticket_params)
     		if @ticket.save
+      			UserMailer.create_ticket(@ticket, request.host_with_port).deliver
       			redirect_to tickets_path
    			else
    				render "new"
